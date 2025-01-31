@@ -100,6 +100,22 @@ resource "aws_route_table" "public_route_table" {
     cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.igw.id
   }
+
+  route {
+    cidr_block = var.pri_1_staging_subnet_cidr_block
+    vpc_peering_connection_id = aws_vpc_peering_connection.main_to_staging.id
+  }
+
+  route {
+    cidr_block = var.pri_2_staging_subnet_cidr_block
+    vpc_peering_connection_id = aws_vpc_peering_connection.main_to_staging.id
+  }
+
+  route {
+    cidr_block = var.pri_3_staging_subnet_cidr_block
+    vpc_peering_connection_id = aws_vpc_peering_connection.main_to_staging.id
+  }
+
   tags = {
     Name = "Public Route Table"
   }
@@ -111,6 +127,22 @@ resource "aws_route_table" "private_route_table" {
     cidr_block = "0.0.0.0/0"
     gateway_id = aws_nat_gateway.nat_gateway.id
   }
+
+  route {
+    cidr_block = var.pri_1_staging_subnet_cidr_block
+    vpc_peering_connection_id = aws_vpc_peering_connection.main_to_staging.id
+  }
+
+  route {
+    cidr_block = var.pri_2_staging_subnet_cidr_block
+    vpc_peering_connection_id = aws_vpc_peering_connection.main_to_staging.id
+  }
+
+  route {
+    cidr_block = var.pri_3_staging_subnet_cidr_block
+    vpc_peering_connection_id = aws_vpc_peering_connection.main_to_staging.id
+  }
+
   tags = {
     Name = "Private Route Table"
   }
@@ -493,25 +525,6 @@ resource "aws_vpc_peering_connection" "main_to_staging" {
   peer_region   = "ap-southeast-2"
   auto_accept   = false 
 }
-
-resource "aws_route" "main_to_staging" {
-  provider = aws
-  route_table_id            = aws_route_table.private_route_table.id
-  destination_cidr_block    = var.vpc_cidr_staging
-  vpc_peering_connection_id = aws_vpc_peering_connection.main_to_staging.id
-}
-
-# resource "aws_vpc_peering_connection" "peer" {
-#   vpc_id        = aws_vpc.demo_vpc.id
-#   peer_vpc_id   = aws_vpc.demo_vpc_sec.id
-#   peer_owner_id = data.aws_caller_identity.peer.account_id
-#   peer_region   = "ap-southeast-2"
-#   auto_accept   = false
-
-#   tags = {
-#     Side = "Requester"
-#   }
-# }
 
 resource "aws_security_group" "drs_endpoint_sg_main" {
   name        = "drs-endpoint-sg-main"

@@ -1,5 +1,5 @@
 # Main VPC
-vpc_cidr   = "10.16.0.0/20"
+vpc_cidr   = "10.16.0.0/16"
 vpc_region = "ap-southeast-1"
 
 pub_1_subnet_cidr_block = "10.16.0.0/24"
@@ -21,25 +21,25 @@ pri_3_subnet_cidr_block = "10.16.5.0/24"
 pri_3_subnet_az         = "ap-southeast-1c"
 
 # Staging VPC
-vpc_cidr_staging   = "10.20.0.0/20"
+vpc_cidr_staging   = "10.17.0.0/21"
 vpc_region_staging = "ap-southeast-2"
 
-# pub_1_staging_subnet_cidr_block = "10.20.0.0/24"
-# pub_1_subnet_az_staging         = "ap-southeast-2a"
+pub_1_staging_subnet_cidr_block = "10.17.0.0/24"
+pub_1_subnet_az_staging         = "ap-southeast-2a"
 
-# pub_2_staging_subnet_cidr_block = "10.20.1.0/24"
-# pub_2_subnet_az_staging         = "ap-southeast-2b"
+pub_2_staging_subnet_cidr_block = "10.17.1.0/24"
+pub_2_subnet_az_staging         = "ap-southeast-2b"
 
-# pub_3_staging_subnet_cidr_block = "10.20.2.0/24"
-# pub_3_subnet_az_staging         = "ap-southeast-2c"
+pub_3_staging_subnet_cidr_block = "10.17.2.0/24"
+pub_3_subnet_az_staging         = "ap-southeast-2c"
 
-pri_1_staging_subnet_cidr_block = "10.20.3.0/24"
+pri_1_staging_subnet_cidr_block = "10.17.3.0/24"
 pri_1_subnet_az_staging         = "ap-southeast-2a"
 
-pri_2_staging_subnet_cidr_block = "10.20.4.0/24"
+pri_2_staging_subnet_cidr_block = "10.17.4.0/24"
 pri_2_subnet_az_staging         = "ap-southeast-2b"
 
-pri_3_staging_subnet_cidr_block = "10.20.5.0/24"
+pri_3_staging_subnet_cidr_block = "10.17.5.0/24"
 pri_3_subnet_az_staging         = "ap-southeast-2c"
 
 # Secondary VPC

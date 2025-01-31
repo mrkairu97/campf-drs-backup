@@ -11,7 +11,7 @@ output "ALB_Link_Main" {
 }
 
 output "ALB_Link_Sec" {
-  value = "http://${aws_lb.tf_campf_demo_alb_sec.dns_name}"
+  value = "http://${aws_lb.tf_campf_demo_alb_stg.dns_name}"
 }
 
 output "VPC_ID_Main" {
@@ -22,6 +22,6 @@ output "VPC_ID_Staging" {
   value = aws_vpc.demo_vpc_staging.id
 }
 
-output "VPC_ID_Sec" {
-  value = aws_vpc.demo_vpc_sec.id
-}
+# output "VPC_ID_Sec" {
+#   value = aws_vpc.demo_vpc_sec.id
+# }
