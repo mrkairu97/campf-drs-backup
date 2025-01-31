@@ -303,7 +303,12 @@ resource "aws_iam_policy" "drs_iam_policy" {
   "Statement": [
     {
       "Action": [
-        "iam:PassRole"
+        "iam:PassRole",
+        "drs:DescribeRecoveryInstances",
+        "drs:DescribeSourceServers",
+        "drs:StartReplication",
+        "drs:AssociateSourceServer",
+        "drs:StartFailback"
       ],
       "Effect": "Allow",
       "Resource": "*"
