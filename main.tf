@@ -349,11 +349,6 @@ resource "aws_iam_role_policy_attachment" "drs_policy_attachment" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSElasticDisasterRecoveryEc2InstancePolicy"
 }
 
-resource "aws_iam_role_policy_attachment" "drs_policy_attachment" {
-  role       = aws_iam_role.ssm_access_role.name
-  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSElasticDisasterRecoveryEc2InstancePolicy"
-}
-
 resource "aws_iam_role_policy_attachment" "drs_policy_attachment_1" {
   role       = aws_iam_role.ssm_access_role.name
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSElasticDisasterRecoveryRecoveryInstancePolicy"
